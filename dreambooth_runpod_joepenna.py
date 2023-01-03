@@ -96,7 +96,7 @@ print("✅ model.ckpt successfully downloaded")
 
 #get_ipython().system('python scripts/stable_txt2img.py   --seed 10   --ddim_eta 0.0   --n_samples 1   --n_iter {self_generated_files_count}   --scale 10.0   --ddim_steps 50   --ckpt model.ckpt   --prompt {self_generated_files_prompt}')
 
-dataset=self_generated_files_prompt
+#dataset=self_generated_files_prompt
 
 #get_ipython().system('mkdir -p regularization_images/{dataset}')
 #get_ipython().system('mv outputs/txt2img-samples/*.png regularization_images/{dataset}')
@@ -107,8 +107,8 @@ dataset=self_generated_files_prompt
 
 # Zip up the files for downloading and reuse.
 # Download this file locally so you can reuse during another training on this dataset
-get_ipython().system('apt-get install -y zip')
-get_ipython().system('zip -r regularization_images.zip regularization_images/{dataset}')
+#get_ipython().system('apt-get install -y zip')
+#get_ipython().system('zip -r regularization_images.zip regularization_images/{dataset}')
 
 
 # # Download pre-generated regularization images
