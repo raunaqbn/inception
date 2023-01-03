@@ -15,6 +15,31 @@
 # Latest information on:
 # https://github.com/JoePenna/Dreambooth-Stable-Diffusion
 
+# Take all inputs for the script here
+import argparse
+
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser()
+
+# Add arguments to the parser
+parser.add_argument('--project_name', default='my_project', help='name of the project')
+parser.add_argument('--token_name', default='firstNameLastName', help='name of the person you are training')
+parser.add_argument('--training_type', default='supervised', help='type of training to use')
+parser.add_argument('--number_of_steps', default=2000, type=int, help='number of steps to run the project')
+
+# Parse the command line arguments
+args = parser.parse_args()
+
+# You can access the arguments using the attribute notation
+project_name = args.project_name
+training_type = args.training_type
+token_name = args.token_name
+number_of_steps = args.number_of_steps
+
+# Now you can use the arguments in your script
+print("Running project " +  project_name + " for token name " + token_name + " with " +  training_type + " training for " + str(number_of_steps) + " steps")
+
+
 # ## Build Environment
 
 # In[ ]:
@@ -225,18 +250,15 @@ image_grid(images, 1, len(images))
 
 # Training
 
-# This isn't used for training, just to help you remember what your trained into the model.
-project_name = "pandu_project"
-
 # MAX STEPS
 # How many steps do you want to train for?
-max_training_steps = 2000
+max_training_steps = number_of_steps
 
 # Match class_word to the category of the regularization images you chose above.
 class_word = "person" # typical uses are "man", "person", "woman"
 
 # This is the unique token you are incorporating into the stable diffusion model.
-token = "pandu"
+token = token_name
 
 
 reg_data_root = "/workspace/Dreambooth-Stable-Diffusion/regularization_images/" + dataset
